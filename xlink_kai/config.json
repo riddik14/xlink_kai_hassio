@@ -1,17 +1,12 @@
 {
   "name": "XLink Kai",
-  "version": "1.0.0",
+  "version": "1.0",
   "slug": "xlink_kai",
-  "description": "Play LAN over internet with Nintendo Switch using XLink Kai",
+  "description": "XLink Kai Engine for Home Assistant",
+  "arch": ["amd64"],
   "startup": "services",
   "boot": "auto",
-  "webui": "[PROTO:http]://[HOST]:[PORT:8099]",
-  "ports": {
-    "30000/udp": 30000,
-    "34522/udp": 34522,
-    "3074/udp": 3074
-  },
-  "arch": ["amd64", "i386"],
-  "options": {},
-  "schema": {}
+  "host_network": true,
+  "privileged": ["NET_ADMIN"],
+  "ingress": false
 }
