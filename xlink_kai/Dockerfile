@@ -1,33 +1,37 @@
+# Usa Alpine come base per compatibilità con Home Assistant
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
+# Imposta la lingua
 ENV LANG C.UTF-8
 
+# Installa i pacchetti necessari
 RUN apk add --no-cache \
-    libpcap \
     bash \
     curl \
     tar \
-    libc6-compat \
+    libpcap \
     iproute2 \
-    python3 \
-    ca-certificates \
-    wget
+    libc6-compat \
+    python3
 
-RUN set -x && \
-    mkdir -p /opt/xlinkkai && \
-    wget -O /tmp/xlinkkai.tar.gz https://dist.teamxlink.co.uk/linux/debian/static/standalone/release/amd64/xlinkkai_7.4.45_651430714_standalone_x86_64.tar.gz && \
-    ls -lh /tmp/xlinkkai.tar.gz && \
-    file /tmp/xlinkkai.tar.gz && \
-    head -n 20 /tmp/xlinkkai.tar.gz || true && \
-    tar -xzf /tmp/xlinkkai.tar.gz -C /opt/xlinkkai --strip-components=1 && \
+# Crea la cartella di destinazione
+RUN mkdir -p /opt/xlinkkai
+
+# Copia l’archivio precedentemente scaricato nella build
+COPY xlinkkai.tar.gz /tmp/xlinkkai.tar.gz
+
+# Estrai e dai i permessi di esecuzione
+RUN tar -xzf /tmp/xlinkkai.tar.gz -C /opt/xlinkkai --strip-components=1 && \
     chmod +x /opt/xlinkkai/kaiEngine
 
-
+# (Facoltativo) Copia script o web UI se necessario
 COPY run.sh /run.sh
 COPY web /web
 RUN chmod +x /run.sh
 
+# Espone la porta usata da XLink Kai (8099 di default)
 EXPOSE 8099
 
-CMD [ "/run.sh" ]
+# Comando di avvio
+CMD ["/run.sh"]
