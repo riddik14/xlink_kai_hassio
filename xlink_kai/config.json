@@ -11,5 +11,7 @@
     "34522/udp": 34522
   },
   "arch": ["amd64", "i386"],
-  "image": "local/xlink-kai"
+  "image": "local/xlink-kai",
+  "options": {},
+  "schema": {}
 }
