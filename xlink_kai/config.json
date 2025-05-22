@@ -2,18 +2,14 @@
   "name": "XLink Kai",
   "version": "1.0.0",
   "slug": "xlink_kai",
-  "description": "XLink Kai per giocare online in LAN con Nintendo Switch",
+  "description": "Play LAN over internet with Nintendo Switch using XLink Kai",
   "startup": "services",
   "boot": "auto",
-  "host_network": true,
-  "privileged": ["NET_ADMIN", "CAP_NET_RAW"],
-  "ingress": false,
-  "panel_icon": "mdi:nintendo-switch",
-  "panel_title": "XLink Kai",
+  "webui": "http://[HOST]:8099",
   "ports": {
-    "8099/tcp": 8099
+    "8099/tcp": 8099,
+    "34522/udp": 34522
   },
-  "arch": ["amd64"],
-  "options": {},
-  "schema": {}
+  "arch": ["amd64", "i386"],
+  "image": "local/xlink-kai"
 }
