@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "[INFO] Avvio di XLink Kai..."
-/opt/xlinkkai/kaiengine -d &
+/opt/xlinkkai/kaiEngine -d &
 
 KAI_PID=$!
 echo $KAI_PID > /tmp/kai.pid
@@ -40,4 +40,4 @@ with socketserver.TCPServer(("", PORT), KaiHandler) as httpd:
     httpd.serve_forever()
 EOF
 
-python3 /tmp/webserver.py
+exec python3 /tmp/webserver.py
