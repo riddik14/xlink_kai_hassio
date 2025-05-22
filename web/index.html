@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>XLink Kai Status</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>XLink Kai</h1>
+  <div id="status">Stato: <span id="kai-status">Caricamento...</span></div>
+  <h2>Log:</h2>
+  <pre id="log-box">Caricamento log...</pre>
+
+  <script>
+    async function fetchStatus() {
+      const res = await fetch('/kai-status');
+      const text = await res.text();
+      document.getElementById('kai-status').textContent = text.trim();
+    }
+
+    async function fetchLogs() {
+      const res = await fetch('/kai-log');
+      const text = await res.text();
+      document.getElementById('log-box').textContent = text;
+    }
+
+    setInterval(() => {
+      fetchStatus();
+      fetchLogs();
+    }, 3000);
+
+    fetchStatus();
+    fetchLogs();
+  </script>
+</body>
+</html>
