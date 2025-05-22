@@ -23,4 +23,4 @@ RUN chmod +x /run.sh
 
 EXPOSE 8099
 
-CMD ["sh", "-c", "/run.sh"]
+CMD ["/run.sh"]
