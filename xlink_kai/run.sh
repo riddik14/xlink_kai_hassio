@@ -1,5 +1,3 @@
 #!/bin/bash
-set -e
-
-echo "[INFO] Avvio di XLink Kai..."
+echo "[INFO] Avvio XLink Kai in foreground (modalità test)"
 exec /opt/xlinkkai/kaiEngine -d
