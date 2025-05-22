@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 echo "[INFO] Avvio di XLink Kai..."
 /opt/xlinkkai/kaiEngine -d &
@@ -40,4 +41,5 @@ with socketserver.TCPServer(("", PORT), KaiHandler) as httpd:
     httpd.serve_forever()
 EOF
 
+# Usa exec per fare diventare python il processo principale (PID 1)
 exec python3 /tmp/webserver.py
