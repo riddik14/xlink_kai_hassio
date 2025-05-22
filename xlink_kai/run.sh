@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "[INFO] Avvio di XLink Kai..."
-/opt/xlinkkai/kaiEngine -d &
+/opt/xlinkkai/kaiengine -d &
 
 KAI_PID=$!
 echo $KAI_PID > /tmp/kai.pid
