@@ -40,4 +40,4 @@ with socketserver.TCPServer(("", PORT), KaiHandler) as httpd:
     httpd.serve_forever()
 EOF
 
-exec python3 /tmp/webserver.py
+python3 /tmp/webserver.py
