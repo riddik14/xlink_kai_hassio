@@ -11,10 +11,13 @@ RUN apk add --no-cache \
     libc6-compat \
     iproute2 \
     python3 \
-    ca-certificates
+    ca-certificates \
+    wget
 
-RUN mkdir -p /opt/xlinkkai && \
-    curl -L -o /tmp/xlinkkai.tar.gz https://dist.teamxlink.co.uk/linux/debian/static/standalone/release/amd64/xlinkkai_7.4.45_651430714_standalone_x86_64.tar.gz && \
+RUN set -x && \
+    mkdir -p /opt/xlinkkai && \
+    wget -O /tmp/xlinkkai.tar.gz https://dist.teamxlink.co.uk/linux/debian/static/standalone/release/amd64/xlinkkai_7.4.45_651430714_standalone_x86_64.tar.gz && \
+    ls -lh /tmp/xlinkkai.tar.gz && \
     tar -xzf /tmp/xlinkkai.tar.gz -C /opt/xlinkkai --strip-components=1 && \
     chmod +x /opt/xlinkkai/kaiEngine
 
