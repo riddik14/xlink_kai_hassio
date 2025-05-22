@@ -22,7 +22,7 @@ RUN mkdir -p /opt/xlinkkai
 COPY xlinkkai.tar.gz /tmp/xlinkkai.tar.gz
 
 # Estrai e dai i permessi di esecuzione
-RUN tar -xzf /tmp/xlinkkai.tar.gz -C /opt/xlinkkai --strip-components=1 && \
+RUN tar -xzf /tmp/xlinkkai.tar.gz -C /opt/xlinkkai && \
     chmod +x /opt/xlinkkai/kaiEngine
 
 # (Facoltativo) Copia script o web UI se necessario
