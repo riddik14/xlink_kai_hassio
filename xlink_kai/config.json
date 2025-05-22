@@ -5,7 +5,7 @@
   "description": "Play LAN over internet with Nintendo Switch using XLink Kai",
   "startup": "services",
   "boot": "auto",
-  "webui": "http://[HOST]:8099",
+  "webui": "[PROTO:http]://[HOST]:[PORT:8099]"
   "ports": {
     "8099/tcp": 8099,
     "34522/udp": 34522
