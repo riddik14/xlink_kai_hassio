@@ -7,8 +7,9 @@
   "boot": "auto",
   "webui": "[PROTO:http]://[HOST]:[PORT:8099]",
   "ports": {
-    "8099/tcp": 8099,
-    "34522/udp": 34522
+    "30000/udp": 30000,
+    "34522/udp": 34522,
+    "3074/udp": 3074
   },
   "arch": ["amd64", "i386"],
   "options": {},
