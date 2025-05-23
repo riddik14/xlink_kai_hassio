@@ -1,1 +1,5 @@
+#!/usr/bin/with-contenv bash
+# Script avviato correttamente da s6-overlay
 
+echo "[INFO] Avvio di XLink Kai..."
+exec /opt/xlinkkai/kaiEngine
