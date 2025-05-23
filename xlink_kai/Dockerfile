@@ -20,3 +20,4 @@ RUN curl -L -o /tmp/xlinkkai.tar.gz https://dist.teamxlink.co.uk/linux/debian/st
 COPY rootfs/ /
 
 EXPOSE 30000/udp
+ENTRYPOINT [ "/init" ]
