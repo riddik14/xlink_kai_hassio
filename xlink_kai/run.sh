@@ -1,3 +1,4 @@
-#!/bin/bash
-echo "[INFO] Avvio XLink Kai in foreground (modalità test)"
-exec /opt/xlinkkai/kaiengine -d
+#!/usr/bin/with-contenv bash
+
+echo "[INFO] Starting XLink Kai engine..."
+exec /opt/xlinkkai/kaiengine
