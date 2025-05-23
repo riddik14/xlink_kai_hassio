@@ -1,3 +1,0 @@
-#!/usr/bin/with-contenv bash
-echo "[INFO] Avvio di XLink Kai..."
-exec /opt/xlinkkai/kaiEngine -d
